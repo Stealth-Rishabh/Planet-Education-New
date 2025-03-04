@@ -2,7 +2,6 @@
   "name": "planetedu",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://stealthlearn.in/planeteducation/",
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
