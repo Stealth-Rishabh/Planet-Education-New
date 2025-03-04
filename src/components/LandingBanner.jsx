@@ -714,7 +714,7 @@ const LandingBanner = () => {
     <Wrapper>
       <div className="catch">
         <img className="logo" src={logo} alt="Logo" />
-        <div style={{minHeight: "900px"}} className="bannerCont justify-content-end">
+        <div style={{minHeight: "915px"}} className="bannerCont justify-content-end">
           {/* <div className="left mt-4">
             <p
               style={{ fontWeight: 800, color: "#fccf03", top: 0, left: 0 }}
