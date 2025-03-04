@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 import background from "../assets/images/Newbanner.png";
-import backgroundResp from "../assets/images/bannerbackResp1.webp";
+import backgroundResp from "../assets/images/mobile.png";
 import logo from "../assets/images/logo-new.webp";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import flag from "../assets/images/leftBotimg.webp";
@@ -714,7 +714,7 @@ const LandingBanner = () => {
     <Wrapper>
       <div className="catch">
         <img className="logo" src={logo} alt="Logo" />
-        <div className="bannerCont justify-content-end">
+        <div style={{minHeight: "135vh"}} className="bannerCont justify-content-end">
           {/* <div className="left mt-4">
             <p
               style={{ fontWeight: 800, color: "#fccf03", top: 0, left: 0 }}
