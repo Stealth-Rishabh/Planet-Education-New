@@ -135,7 +135,7 @@ const Partners = () => {
 
   return (
     <Partners>
-      <Container className="my-4">
+      <Container className="mb-5 mt-0 my-sm-4">
         <Row className="customCenter">
           <Col md={7} className="d-flex align-items-center justify-content-center flex-column">
             <h3 className="text-start">

@@ -58,7 +58,7 @@ const WhyAttend = () => {
   ];
 
   return (
-    <section className="enhanced-why-attend-section pb-5">
+    <section className="enhanced-why-attend-section mt-5 mt-sm-0 pb-5">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
