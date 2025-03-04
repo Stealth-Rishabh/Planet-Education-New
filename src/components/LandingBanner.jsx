@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-import background from "../assets/images/bannerbackNewOld.png";
+import background from "../assets/images/Poster.png";
 import backgroundResp from "../assets/images/bannerbackResp1.webp";
 import logo from "../assets/images/logo-new.webp";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
