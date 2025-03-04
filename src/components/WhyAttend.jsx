@@ -1,9 +1,9 @@
-import { useState } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { motion } from "framer-motion";
 
 const WhyAttend = () => {
-  const [hoveredBenefit, setHoveredBenefit] = useState(null)
+  const [hoveredBenefit, setHoveredBenefit] = useState(null);
 
   const benefits = [
     {
@@ -20,7 +20,8 @@ const WhyAttend = () => {
     },
     {
       id: 3,
-      title: "Meet representatives from top universities in Australia, UK & USA",
+      title:
+        "Meet representatives from top universities in Australia, UK & USA",
       icon: "🌎",
       color: "#FFD166",
     },
@@ -54,7 +55,7 @@ const WhyAttend = () => {
       icon: "🎉",
       color: "#F72585",
     },
-  ]
+  ];
 
   return (
     <section className="enhanced-why-attend-section py-5">
@@ -76,6 +77,13 @@ const WhyAttend = () => {
             color: #2D3748;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
+          }
+
+          h3 {
+              font-size: 40px;
+              font-weight: 700;
+              @media (max-width: 450px) { font-size: 24px; }
+              @media (min-width: 768px) and (max-width: 1024px) { font-size: 28px; }
           }
 
           .section-divider {
@@ -191,9 +199,11 @@ const WhyAttend = () => {
           className="row justify-content-center mb-5"
         >
           <div className="col-lg-8 text-center">
-            <h2 className="section-title">Why Attend?</h2>
+            <h3 className="section-title">Why Attend?</h3>
             <div className="section-divider"></div>
-            <p className="section-subtitle">Unlock a world of opportunities at our premier education fair</p>
+            <p className="section-subtitle">
+              Unlock a world of opportunities at our premier education fair
+            </p>
           </div>
         </motion.div>
 
@@ -222,8 +232,7 @@ const WhyAttend = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default WhyAttend
-
+export default WhyAttend;

@@ -52,20 +52,48 @@ const Partners = () => {
     }
     .logimg-div {
       background-color: #eef1f3;
-      width: 250px;
+      max-width: 250px;
+      width: 100%;
       height: 80px;
       display: flex;
+      position: relative;
       img {
         margin: auto;
-        width: 20vw !important;
-        @media (max-width: 450px) { max-width: 106px !important; }
-        @media (min-width: 450px) and (max-width: 768px) { max-width: 120px !important; }
-        @media (min-width: 768px) and (max-width: 1024px) { max-width: 106px !important; }
-        @media (min-width: 992px) and (max-width: 1024px) { max-width: 120px !important; }
-        @media (min-width: 1024px) and (max-width: 1440px) { max-width: 156px !important; }
+        // width: 20vw !important;
+        transition: opacity 0.3s ease;
+        @media (max-width: 450px) { max-width: 106px !important; width: 100%!important; }
+        @media (min-width: 450px) and (max-width: 768px) { max-width: 120px !important; width: 100%!important; }
+        @media (min-width: 768px) and (max-width: 1024px) { max-width: 106px !important; width: 100%!important; }
+        @media (min-width: 992px) and (max-width: 1024px) { max-width: 120px !important; width: 100%!important; }
+        @media (min-width: 1024px) and (max-width: 1440px) { max-width: 156px !important; width: 100%!important; }
       }
-      @media (max-width: 450px) { width: 195px; }
-      @media (min-width: 768px) and (max-width: 1024px) { width: 195px; }
+      .hover-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+      }
+      &:hover {
+        img {
+          opacity: 0.3;
+        }
+        .hover-text {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 450px) { max-width: 195px; width: 100%; }
+      @media (min-width: 768px) and (max-width: 1024px) { max-width: 195px; width: 100%; }
     }
     .partners-grid {
       display: grid;
@@ -75,9 +103,6 @@ const Partners = () => {
       margin-top: 1rem;
       @media (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
-      }
-      @media (max-width: 450px) {
-        grid-template-columns: 1fr;
       }
     }
     .btm-red { border-bottom: 3.5px solid red; }
@@ -91,17 +116,17 @@ const Partners = () => {
   `;
 
   const partners = [
-    { src: part1, alt: "La Trobe University" },
-    { src: part2, alt: "La Trobe University" },
-    { src: part3, alt: "Deakin University" },
-    { src: part4, alt: "Deakin University" },
-    { src: part5, alt: "Deakin University" },
-    { src: part6, alt: "Deakin University" },
-    { src: part7, alt: "Deakin University" },
-    { src: part8, alt: "Deakin University" },
-    { src: part9, alt: "Deakin University" },
-    { src: part10, alt: "Deakin University" },
-    { src: part11, alt: "Deakin University" }
+    { src: part1, alt: "Brunel University London", text: "Scholarship Up to 30% Dummy" },
+    { src: part2, alt: "Charles Darwin University", text: "Scholarship Up to 30%" },
+    { src: part3, alt: "Deakin University", text: "25% Merit Scholarship" },
+    { src: part4, alt: "UNSW", text: "Tuition Fee Discounts for international students" },
+    { src: part5, alt: "UTS", text: "Scholarships Up to $40,000" },
+    { src: part6, alt: "Macquarie University", text: "Early Acceptance Scholarship – $10,000/year" },
+    { src: part7, alt: "Murdoch University", text: "Scholarship Upto 20%" },
+    { src: part8, alt: "RMIT", text: "20% Tuition Fee Reduction" },
+    { src: part9, alt: "Victoria University", text: "Scholarships Up to 30%" },
+    { src: part10, alt: "Western Sydney University", text: "Scholarship Up to $6,000" },
+    { src: part11, alt: "University", text: "Transforming Lives Through Education" }
   ];
 
   return (
@@ -115,7 +140,8 @@ const Partners = () => {
             <div className="partners-grid">
               {partners.map((partner, index) => (
                 <div key={index} className="logimg-div card-background">
-                  <img src={partner.src} alt={partner.alt} className="img-fluid" style={{ maxWidth: "200px" }} />
+                  <img src={partner.src} alt={partner.alt} className="img-fluid" />
+                  <div className="hover-text">{partner.text}</div>
                 </div>
               ))}
               <div className="logimg-div card-background customcenter">
