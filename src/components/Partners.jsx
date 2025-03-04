@@ -11,7 +11,9 @@ import part4 from "../assets/logos/UNSW Scholarships.png";
 import part5 from "../assets/logos/University of Technology - Sydney.png";
 import part9 from "../assets/logos/Victoria University.png";
 import part10 from "../assets/logos/Western Sydney University.png";
-import part11 from "../assets/images/logo21.webp";
+import part11 from "../assets/logos/cqu university.png";
+import part12 from "../assets/logos/james-cook-university.png";
+import part13 from "../assets/logos/La Trobe University.png";
 import partRight from "../assets/images/partnerlogoright.webp";
 const Partners = () => {
   const Partners = styled.section`
@@ -126,7 +128,9 @@ const Partners = () => {
     { src: part8, alt: "RMIT", text: "20% Tuition Fee Reduction" },
     { src: part9, alt: "Victoria University", text: "Scholarships Up to 30%" },
     { src: part10, alt: "Western Sydney University", text: "Scholarship Up to $6,000" },
-    { src: part11, alt: "University", text: "Transforming Lives Through Education" }
+    { src: part11, alt: "CQU University", text: "Scholarships of A $20M+" },
+    { src: part12, alt: "James Cook University", text: "Scholarships Upto 30%" },
+    { src: part13, alt: "La Trobe University", text: "Scholarships Upto 15 to 25% based on academic merit" },
   ];
 
   return (

@@ -58,7 +58,7 @@ const WhyAttend = () => {
   ];
 
   return (
-    <section className="enhanced-why-attend-section py-5">
+    <section className="enhanced-why-attend-section pb-5">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -200,10 +200,6 @@ const WhyAttend = () => {
         >
           <div className="col-lg-8 text-center">
             <h3 className="section-title">Why Attend?</h3>
-            <div className="section-divider"></div>
-            <p className="section-subtitle">
-              Unlock a world of opportunities at our premier education fair
-            </p>
           </div>
         </motion.div>
 

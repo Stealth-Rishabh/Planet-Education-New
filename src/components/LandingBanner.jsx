@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-import background from "../assets/images/Poster.png";
+import background from "../assets/images/Newbanner.png";
 import backgroundResp from "../assets/images/bannerbackResp1.webp";
 import logo from "../assets/images/logo-new.webp";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -715,14 +715,30 @@ const LandingBanner = () => {
       <div className="catch">
         <img className="logo" src={logo} alt="Logo" />
         <div className="bannerCont justify-content-end">
-          {/* <div className="left">
-            <p className="l1">
-              Study <span className="text_abroad">Abroad</span>
+          {/* <div className="left mt-4">
+            <p
+              style={{ fontWeight: 800, color: "#fccf03", top: 0, left: 0 }}
+              className="l1 pb-0 mb-0"
+            >
+              Study Abroad
             </p>
-            <p className="l2 scholar_text">
-              Attend Planet's Biggest
-              <br />
-              <span> Roadshow in your City </span>
+            <p className="text-white fs-2 mt-0">
+              Apply to the World’s Top 300 Universities in
+            </p>
+            <p className="text-white fs-1 mt-0">
+              Check your scholarship Eligibility On
+            </p>
+            <p
+              style={{
+                fontWeight: 800,
+                color: "#fccf03",
+                top: 0,
+                left: 0,
+                fontSize: "3rem",
+              }}
+              className="l1 pb-0 mb-0"
+            >
+              Global Scholarships Day
             </p>
             <p className="lresp1">Study Abroad</p>
             <p className="lresp2">
