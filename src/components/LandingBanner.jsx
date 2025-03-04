@@ -570,6 +570,20 @@ const RedTextContainer = styled.div`
 //   }
 // `;
 
+const BannerContainer = styled.div`
+  display: flex;
+  padding-left: 100px;
+  gap: 100px;
+  padding-right: 100px !important;
+  min-height: 100vh;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    min-height: 1366px;
+    margin-bottom: -20rem;
+  }
+`;
+
 const LandingBanner = () => {
   const [formData, setFormData] = useState({
     fullname: "",
@@ -714,43 +728,7 @@ const LandingBanner = () => {
     <Wrapper>
       <div className="catch">
         <img className="logo" src={logo} alt="Logo" />
-        <div className="bannerCont justify-content-end" style={{
-          minHeight: "100vh",
-          "@media (max-width: 768px)": {
-            minHeight: "950px"
-          }
-        }}>
-          {/* <div className="left mt-4">
-            <p
-              style={{ fontWeight: 800, color: "#fccf03", top: 0, left: 0 }}
-              className="l1 pb-0 mb-0"
-            >
-              Study Abroad
-            </p>
-            <p className="text-white fs-2 mt-0">
-              Apply to the World’s Top 300 Universities in
-            </p>
-            <p className="text-white fs-1 mt-0">
-              Check your scholarship Eligibility On
-            </p>
-            <p
-              style={{
-                fontWeight: 800,
-                color: "#fccf03",
-                top: 0,
-                left: 0,
-                fontSize: "3rem",
-              }}
-              className="l1 pb-0 mb-0"
-            >
-              Global Scholarships Day
-            </p>
-            <p className="lresp1">Study Abroad</p>
-            <p className="lresp2">
-              Attend Planet's Biggest Roadshow in your City
-            </p>
-            <img className="flag" src={flag} alt="flags" />
-          </div> */}
+        <BannerContainer className="bannerCont">
           <div className="right">
             <div className="form">
               <Row className="form-row">
@@ -930,7 +908,7 @@ const LandingBanner = () => {
               </Row>
             </div>
           </div>
-        </div>
+        </BannerContainer>
       </div>
       {/* <ScholarshipBanner /> */}
     </Wrapper>
