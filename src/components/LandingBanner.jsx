@@ -208,6 +208,12 @@ const Wrapper = styled.section`
       margin-left: 50px;
     }
   }
+
+  @media (max-width: 400px) {
+    .bannerCont {
+      margin-top: -100px;
+    }
+  }
   @media (max-width: 1450px) {
     .left .l3 {
       font-size: 61px;
@@ -263,7 +269,6 @@ const Wrapper = styled.section`
       padding-left: 0px;
       gap: 20px !important;
       justify-content: center;
-      margin-top: -100px;
     }
     .lresp1,
     .lresp2 {
