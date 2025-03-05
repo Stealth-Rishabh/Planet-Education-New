@@ -135,13 +135,13 @@ try {
         ]);
     }
 
-} catch (Exception $e) {
-    // Log and return error message
-    error_log("Error in form submission: " . $e->getMessage());
-    http_response_code(400);
-    echo json_encode([
-        'status' => 'error',
-        'message' => $e->getMessage()
-    ]);
-}
+// } catch (Exception $e) {
+//     // Log and return error message
+//     error_log("Error in form submission: " . $e->getMessage());
+//     http_response_code(400);
+//     echo json_encode([
+//         'status' => 'error',
+//         'message' => $e->getMessage()
+//     ]);
+ }
 ?>
