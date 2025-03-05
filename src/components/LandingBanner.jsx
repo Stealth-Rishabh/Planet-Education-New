@@ -145,10 +145,15 @@ const Wrapper = styled.section`
     font-size: 13px;
   }
   @media (max-width: 450px) {
-    min-height: 810px;
+    min-height: 610px;
     background-image: url(${backgroundResp});
     background-size: 100%;
     object-fit: cover;
+    .bannerCont {
+      flex-direction: column;
+      padding-left: 0px;
+      gap: 20px !important;
+      justify-content: center;
     .hideMob {
       display: none;
     }
