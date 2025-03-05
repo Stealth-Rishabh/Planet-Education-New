@@ -81,7 +81,7 @@ const Wrapper = styled.section`
     margin-bottom: 10px;
   }
   .logo {
-    width: 240px;
+    width: 340px;
     padding: 1rem;
   }
   .bannerCont {
