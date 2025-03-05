@@ -401,10 +401,7 @@ const Wrapper = styled.section`
   }
   @media (min-width: 1330px) and (max-width: 1440px) {
     min-height: 800px;
-    .bannerCont {
-      gap: 10px;
-      justify-content: space-between;
-    }
+
     .overrideWidth {
       width: 90%;
     }
