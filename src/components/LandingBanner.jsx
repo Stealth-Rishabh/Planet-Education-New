@@ -149,12 +149,6 @@ const Wrapper = styled.section`
     background-image: url(${backgroundResp});
     background-size: 100%;
     object-fit: cover;
-    .bannerCont {
-      flex-direction: column;
-      padding-left: 0px;
-      gap: 20px !important;
-      justify-content: center;
-    }
     .hideMob {
       display: none;
     }
@@ -191,7 +185,13 @@ const Wrapper = styled.section`
     .l3 {
       display: none;
     }
-
+    .bannerCont {
+      flex-direction: column;
+      padding-left: 0px;
+      gap: 20px !important;
+      justify-content: center;
+      padding-right: 0px !important;
+    }
     .logo {
       width: 250px;
       padding: 0.5rem;
