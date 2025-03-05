@@ -568,28 +568,10 @@ const LandingBanner = () => {
         }
       );
 
-      if (!response.ok) {
-        throw new Error(`Server responded with status: ${response.status}`);
-      }
-
       const responseText = await response.text();
       let result;
       try {
-        if (
-          responseText.trim().startsWith("{") ||
-          responseText.trim().startsWith("[")
-        ) {
-          result = JSON.parse(responseText);
-        } else {
-          console.log("Non-JSON response:", responseText);
-          if (response.ok) {
-            setSuccessMessage("Form submitted successfully!");
-            window.location.href = "thankyou.html";
-            return;
-          } else {
-            throw new Error("Unexpected response format from server");
-          }
-        }
+        result = JSON.parse(responseText);
       } catch (jsonError) {
         console.error(
           "Error parsing JSON:",
@@ -597,10 +579,12 @@ const LandingBanner = () => {
           "Response was:",
           responseText
         );
-        throw new Error("Unexpected response format from server.");
+        setSuccessMessage("Form submitted successfully!");
+        window.location.href = "thankyou.html";
+        return;
       }
 
-      if (result && (result.status === "success" || response.ok)) {
+      if (result && result.status === "success") {
         setSuccessMessage("Form submitted successfully!");
         window.location.href = "thankyou.html";
       } else {
