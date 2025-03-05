@@ -56,7 +56,9 @@ try {
     }
 
     // Format the query content for CRM
-    $query = "Education Info: " . $educationInfo . "\nLevel Info: " . $levelInfo . "\nExam Info: " . $examInfo;
+    $query = "Education_Info: " . $educationInfo . "\n" .
+             "Level_Info: " . $levelInfo . "\n" .
+             "Exam_Info: " . $examInfo;
 
     // Prepare CRM fields
     $uniFields = [

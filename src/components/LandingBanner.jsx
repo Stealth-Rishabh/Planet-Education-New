@@ -5,11 +5,8 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import background from "../assets/images/Newbanner.png";
 import backgroundResp from "../assets/images/mobile.png";
 import logo from "../assets/images/logo-new.webp";
-import flag from "../assets/images/leftBotimg.webp";
-import Vadodara from "../assets/images/Vadodara.png";
-import Ahmedabad from "../assets/images/Ahmedabad.png";
-import Chennai from "../assets/images/Chennai.png";
 
+// Styled components moved outside the functional component
 const Wrapper = styled.section`
   width: 100%;
   min-height: 906px;
@@ -587,6 +584,7 @@ const LandingBanner = () => {
           console.log("Non-JSON response:", responseText);
           if (response.ok) {
             setSuccessMessage("Form submitted successfully!");
+            window.location.href = "thankyou.html";
             return;
           } else {
             throw new Error("Unexpected response format from server");
@@ -604,9 +602,7 @@ const LandingBanner = () => {
 
       if (result && (result.status === "success" || response.ok)) {
         setSuccessMessage("Form submitted successfully!");
-        if (!successMessage) {
-          window.location.href = "thankyou.html";
-        }
+        window.location.href = "thankyou.html";
       } else {
         setError(result?.message || "Failed to submit form. Please try again.");
       }
