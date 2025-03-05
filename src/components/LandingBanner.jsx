@@ -357,10 +357,7 @@ const Wrapper = styled.section`
   }
   @media (min-width: 1024px) and (max-width: 1150px) {
     min-height: 625px;
-    .bannerCont {
-      gap: 10px;
-      justify-content: space-between;
-    }
+
     .overrideWidth {
       width: 90%;
     }
@@ -382,10 +379,7 @@ const Wrapper = styled.section`
   }
   @media (min-width: 1150px) and (max-width: 1330px) {
     min-height: 701px;
-    .bannerCont {
-      gap: 10px;
-      justify-content: space-between;
-    }
+
     .overrideWidth {
       width: 90%;
     }
@@ -581,6 +575,10 @@ const BannerContainer = styled.div`
   @media (max-width: 768px) {
     min-height: 1366px;
     margin-bottom: -20rem;
+  }
+
+  @media screen and (min-width: 600x) {
+    justify-content: flex-end !important;
   }
 `;
 
