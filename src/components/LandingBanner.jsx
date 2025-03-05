@@ -693,7 +693,7 @@ const LandingBanner = () => {
 
       // Send the data to the PHP server
       const response = await fetch(
-        "https://stealthlearn.in/planeteducation/submit.php",
+        "https://stealthlearn.in/planeteducation/planetEducation_CRM.php",
         {
           method: "POST",
           body: formDataToSend,
