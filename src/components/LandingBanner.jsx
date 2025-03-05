@@ -191,7 +191,9 @@ const Wrapper = styled.section`
       gap: 20px !important;
       justify-content: center;
       padding-right: 0px !important;
+      margin-top: -100px;
     }
+
     .logo {
       width: 250px;
       padding: 0.5rem;
