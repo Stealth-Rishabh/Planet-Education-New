@@ -455,6 +455,16 @@ const BannerContainer = styled.div`
   }
 `;
 
+// Add this function outside your component
+const getUtmParams = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    source: urlParams.get("utm_source") || "Landing Page",
+    medium: urlParams.get("utm_medium") || "",
+    campaign: urlParams.get("utm_campaign") || "",
+  };
+};
+
 const LandingBanner = () => {
   const [formData, setFormData] = useState({
     fullname: "",
@@ -542,8 +552,25 @@ const LandingBanner = () => {
     }
 
     try {
-      // Log what we're sending for debugging
+      // Get UTM parameters
+      const utmParams = getUtmParams();
+
+      // Determine the source based on utm_source
+      let source = utmParams.source;
+
+      // You can add custom logic to categorize sources
+      if (source.toLowerCase() === "google") {
+        source = "Google";
+      } else if (
+        ["facebook", "instagram", "twitter", "linkedin"].includes(
+          source.toLowerCase()
+        )
+      ) {
+        source = "Social Media";
+      }
+
       console.log("Sending form data:", formData);
+      console.log("UTM Source:", source);
 
       const formDataToSend = new FormData();
       formDataToSend.append("contact-name", formData.fullname);
@@ -556,12 +583,15 @@ const LandingBanner = () => {
       formDataToSend.append("contact-exam", formData.exam);
       formDataToSend.append("referrer_name", document.referrer || "direct");
       formDataToSend.append("keyword", "Scholarship Program");
-      formDataToSend.append("source", "Landing Page");
+      formDataToSend.append("source", source); // Use the dynamic source
       formDataToSend.append("orderid", "1050");
       formDataToSend.append("sitename", "globalscholarship");
       formDataToSend.append("campaign_url", window.location.href);
-      formDataToSend.append("campaign_name", "Study Abroad Campaign");
-      formDataToSend.append("network", "Organic");
+      formDataToSend.append(
+        "campaign_name",
+        utmParams.campaign || "Study Abroad Campaign"
+      );
+      formDataToSend.append("network", utmParams.medium || "Organic");
 
       // Attempt to send data regardless of whether it'll succeed or fail
       const response = await fetch(

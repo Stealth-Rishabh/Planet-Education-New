@@ -56,8 +56,8 @@ try {
     }
 
     // Format the query content for CRM
-    $query = "Education_Info: " . $educationInfo . "\n" .
-             "Level_Info: " . $levelInfo . "\n" .
+    $query = "Current_Education: " . $educationInfo . "\n" .
+             "Preffered_Education: " . $levelInfo . "\n" .
              "Exam_Info: " . $examInfo;
 
     // Prepare CRM fields
@@ -135,13 +135,13 @@ try {
         ]);
     }
 
-// } catch (Exception $e) {
-//     // Log and return error message
-//     error_log("Error in form submission: " . $e->getMessage());
-//     http_response_code(400);
-//     echo json_encode([
-//         'status' => 'error',
-//         'message' => $e->getMessage()
-//     ]);
- }
+} catch (Exception $e) {
+    // Log and return error message
+    error_log("Error in form submission: " . $e->getMessage());
+    http_response_code(400);
+    echo json_encode([
+        'status' => 'error',
+        'message' => $e->getMessage()
+    ]);
+}
 ?>
