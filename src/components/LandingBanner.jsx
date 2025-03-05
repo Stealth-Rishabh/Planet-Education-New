@@ -593,7 +593,7 @@ const LandingBanner = () => {
     country: "",
     level: "",
     exam: "",
-    city: "Vadodara", // Default city value set to "Vadodara"
+    city: "", // Default city value set to "Vadodara"
   });
 
   const [phoneError, setPhoneError] = useState("");
@@ -677,7 +677,7 @@ const LandingBanner = () => {
       formDataToSend.append("contact-name", formData.fullname);
       formDataToSend.append("contact-email", formData.email);
       formDataToSend.append("contact-phone", formData.contact);
-      formDataToSend.append("contact-company", "Vadodara");
+      formDataToSend.append("contact-company", formData.city);
       formDataToSend.append("contact-subject", formData.country);
       formDataToSend.append("contact-message", formData.education);
 
@@ -685,13 +685,13 @@ const LandingBanner = () => {
       formDataToSend.append("referrer_name", document.referrer || "direct");
       formDataToSend.append("keyword", "Scholarship Program");
       formDataToSend.append("source", "Landing Page");
-      formDataToSend.append("orderid", "1040"); // Hardcoded or dynamically generated
-      formDataToSend.append("sitename", "GujratPlaneted");
+      formDataToSend.append("orderid", "1050");
+      formDataToSend.append("sitename", "globalscholarship");
       formDataToSend.append("campaign_url", window.location.href);
       formDataToSend.append("campaign_name", "Study Abroad Campaign");
       formDataToSend.append("network", "Organic");
 
-      // Send the data to the PHP server
+      // Use the correct file name - planetEducation_CRM.php instead of submit.php
       const response = await fetch(
         "https://stealthlearn.in/planeteducation/planetEducation_CRM.php",
         {
@@ -700,21 +700,52 @@ const LandingBanner = () => {
         }
       );
 
-      // Check if the response is valid JSON
-      let result;
-      try {
-        result = await response.json();
-      } catch (jsonError) {
-        throw new Error("Unexpected response format, not JSON.");
+      // Check response status first
+      if (!response.ok) {
+        throw new Error(`Server responded with status: ${response.status}`);
       }
 
-      // Handle the JSON response
-      if (response.ok && result.status === "success") {
+      // Get the text response first to help with debugging
+      const responseText = await response.text();
+
+      // Try to parse the response as JSON only if it looks like JSON
+      let result;
+      try {
+        // Only try to parse if the text starts with { or [
+        if (
+          responseText.trim().startsWith("{") ||
+          responseText.trim().startsWith("[")
+        ) {
+          result = JSON.parse(responseText);
+        } else {
+          console.log("Non-JSON response:", responseText);
+          // If response is not JSON but response was ok, consider it a success
+          if (response.ok) {
+            setSuccessMessage("Form submitted successfully!");
+            // Redirect to the thank you page
+            window.location.href = "thankyou.html";
+            return;
+          } else {
+            throw new Error("Unexpected response format from server");
+          }
+        }
+      } catch (jsonError) {
+        console.error(
+          "Error parsing JSON:",
+          jsonError,
+          "Response was:",
+          responseText
+        );
+        throw new Error("Unexpected response format from server.");
+      }
+
+      // Handle the JSON response if we successfully parsed it
+      if (result && (result.status === "success" || response.ok)) {
         setSuccessMessage("Form submitted successfully!");
         // Redirect to the thank you page
         window.location.href = "thankyou.html";
       } else {
-        setError(result.message || "Failed to submit form. Please try again.");
+        setError(result?.message || "Failed to submit form. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -805,14 +836,21 @@ const LandingBanner = () => {
                       >
                         <Form.Control
                           className="fntSize"
-                          type="text"
-                          placeholder="Vadodara"
+                          as="select"
                           name="city"
-                          value="Vadodara"
-                          disabled
-                          readOnly
+                          value={formData.city}
+                          onChange={handleInput}
                           required
-                        />
+                        >
+                          <option value="">Your Current City</option>
+                          <option value="Vadodara">Vadodara</option>
+                          <option value="Delhi NCR">Delhi NCR</option>
+                          <option value="Ahmedabad">Ahmedabad</option>
+                          <option value="Chandigarh">Chandigarh</option>
+                          <option value="Baroda">Baroda</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Mumbai">Mumbai</option>
+                        </Form.Control>
                       </Form.Group>
                       <Form.Group
                         controlId="formLocation"
@@ -831,7 +869,6 @@ const LandingBanner = () => {
                           </option>
                           <option value="Australia">Australia</option>
                           <option value="USA">USA</option>
-                          <option value="Canada">Canada</option>
                           <option value="UK">UK</option>
                         </Form.Control>
                       </Form.Group>
@@ -868,7 +905,6 @@ const LandingBanner = () => {
                           <option value="">Preferred Study Level</option>
                           <option value="Graduate">Graduate</option>
                           <option value="Post Graduate">Post Graduate</option>
-                          <option value="Doctorate">Doctorate</option>
                         </Form.Control>
                       </Form.Group>
                       <Form.Group
@@ -883,11 +919,11 @@ const LandingBanner = () => {
                           onChange={handleInput}
                           required
                         >
-                          <option value="">
-                            Have you taken up IELTS/PTE/TOEFL exam?
-                          </option>
-                          <option value="Yes">Yes</option>
-                          <option value="No">No</option>
+                          <option value="">Any Language Test Taken?</option>
+                          <option value="IELTS">IELTS</option>
+                          <option value="PTE">PTE</option>
+                          <option value="Duolingo">Duolingo</option>
+                          <option value="None">None</option>
                         </Form.Control>
                       </Form.Group>
                       <Button

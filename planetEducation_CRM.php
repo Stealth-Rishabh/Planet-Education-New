@@ -6,7 +6,7 @@ ini_set('log_errors', 1);
 ini_set('error_log', __DIR__ . '/php-errors.log');
 
 // Enable CORS - keeping your specific origin
-header("Access-Control-Allow-Origin: https://stealthlearn.in");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-Type: application/json');
