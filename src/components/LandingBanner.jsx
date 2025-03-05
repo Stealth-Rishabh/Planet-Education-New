@@ -191,7 +191,6 @@ const Wrapper = styled.section`
       gap: 20px !important;
       justify-content: center;
       padding-right: 0px !important;
-      margin-top: -100px;
     }
 
     .logo {
@@ -264,6 +263,7 @@ const Wrapper = styled.section`
       padding-left: 0px;
       gap: 20px !important;
       justify-content: center;
+      margin-top: -100px;
     }
     .lresp1,
     .lresp2 {
