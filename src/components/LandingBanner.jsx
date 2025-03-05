@@ -564,7 +564,7 @@ const LandingBanner = () => {
       formDataToSend.append("network", "Organic");
 
       const response = await fetch(
-        "https://stealthlearn.in/planeteducation/planetEducation_CRM.php",
+        "https://www.bfis.in/BFIS/planetEducation_CRM.php",
         {
           method: "POST",
           body: formDataToSend,
