@@ -5,17 +5,10 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 import background from "../assets/images/Newbanner.png";
 import backgroundResp from "../assets/images/mobile.png";
 import logo from "../assets/images/logo-new.webp";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import flag from "../assets/images/leftBotimg.webp";
 import Vadodara from "../assets/images/Vadodara.png";
 import Ahmedabad from "../assets/images/Ahmedabad.png";
 import Chennai from "../assets/images/Chennai.png";
-
-// import {
-//   faCalendarAlt,
-//   faClock,
-//   faMapMarkerAlt,
-// } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -87,8 +80,8 @@ const Wrapper = styled.section`
   }
   .error-message {
     color: red;
-    font-size: 12px; /* Smaller font size */
-    margin-bottom: 10px; /* Adjust spacing */
+    font-size: 12px;
+    margin-bottom: 10px;
   }
   .logo {
     width: 240px;
@@ -446,120 +439,6 @@ const Wrapper = styled.section`
     padding: 0 1rem;
   }
 `;
-const Banner = styled.div`
-  background-color: #ffffff;
-  color: #000000;
-  padding: 30px;
-  font-family: Arial, sans-serif;
-  margin: 14vw auto 0;
-  text-align: center;
-
-  @media (max-width: 1024px) {
-    margin: 0rem auto;
-  }
-`;
-
-const Title = styled.h1`
-  color: black;
-  font-weight: bold;
-  font-size: 36px;
-  margin-bottom: 15px;
-
-  @media (max-width: 1024px) {
-    font-size: 24px;
-  }
-`;
-
-// const Amount = styled.span`
-//   font-size: 6vw;
-//   font-weight: bold;
-//   text-shadow: 1.5px 3px 7.5px black;
-//   color: #ffff00;
-// `;
-
-const RedTextContainer = styled.div`
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-
-  @media (max-width: 1024px) {
-    flex-direction: column; /* Stack vertically on smaller screens */
-    align-items: center; /* Center items on mobile */
-    gap: 1rem; /* Reduce gap on mobile */
-  }
-`;
-
-// const List = styled.ul`
-//   list-style-type: none;
-//   padding: 0;
-//   max-width: 525px;
-//   margin: 0 auto;
-
-//   @media (max-width: 1024px) {
-//     max-width: 500px; /* Full width on mobile */
-//     text-align: left;
-//     padding-left: 15px; /* Add padding for mobile */
-//   }
-//`;
-
-// const ListItem = styled.li`
-//   margin-bottom: 12px;
-//   padding-left: 30px;
-//   position: relative;
-//   font-size: 1.5rem;
-//   text-align: left;
-//   line-height: 1.6;
-
-//   &:before {
-//     content: "▶";
-//     color: white;
-//     position: absolute;
-//     left: 0;
-//     top: 0.2em;
-//   }
-
-//   @media (max-width: 1024px) {
-//     padding-left: 25px;
-//     font-size: 1.2rem;
-//   }
-// `;
-
-// const EventBox = styled.div`
-//   background-color: #ffffff;
-//   color: #000000;
-//   padding: 22.5px;
-//   border-radius: 10px;
-//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-//   display: flex;
-//   align-items: center;
-//   gap: 15px;
-//   max-width: 500px;
-//   flex-wrap: wrap;
-//   justify-content: flex-start;
-
-//   @media (max-width: 1024px) {
-//     width: 100%; /* Full width on mobile */
-//     padding: 15px;
-//     flex-direction: column; /* Stack items vertically on mobile */
-//     align-items: center; /* Center content on mobile */
-//   }
-// `;
-
-// const EventItem = styled.div`
-//   display: flex;
-//   align-items: center;
-//   gap: 10px;
-// `;
-
-// const EventDetails = styled.p`
-//   margin: 7.5px 0;
-//   font-size: 1.5rem;
-//   font-weight: bold;
-
-//   @media (max-width: 1024px) {
-//     font-size: 1.2rem;
-//   }
-// `;
 
 const BannerContainer = styled.div`
   display: flex;
@@ -588,14 +467,14 @@ const LandingBanner = () => {
     country: "",
     level: "",
     exam: "",
-    city: "", // Default city value set to "Vadodara"
+    city: "",
   });
 
   const [phoneError, setPhoneError] = useState("");
   const [digitError, setDigitError] = useState("");
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); // Manage submit button state
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validatePhoneStart = (value) => {
     if (value && !/^[6-9]/.test(value)) {
@@ -627,7 +506,6 @@ const LandingBanner = () => {
     if (name === "contact") {
       const sanitizedValue = value.replace(/\D/g, "");
       validatePhoneStart(sanitizedValue);
-
       setFormData((prevState) => ({
         ...prevState,
         [name]: sanitizedValue.slice(0, 10),
@@ -639,7 +517,7 @@ const LandingBanner = () => {
       ...prevState,
       [name]: value,
     }));
-    setError(""); // Clear any error message
+    setError("");
   };
 
   const handleBlur = (e) => {
@@ -652,31 +530,30 @@ const LandingBanner = () => {
     e.preventDefault();
     setError("");
     setSuccessMessage("");
-    setIsSubmitting(true); // Disable the submit button
+    setIsSubmitting(true);
 
     if (phoneError || digitError) {
       setError("Please correct the errors before submitting.");
-      setIsSubmitting(false); // Re-enable the submit button
+      setIsSubmitting(false);
       return;
     }
 
     if (!/^[a-zA-Z\s]+$/.test(formData.fullname)) {
       setError("Name can only contain letters and spaces.");
-      setIsSubmitting(false); // Re-enable the submit button
+      setIsSubmitting(false);
       return;
     }
 
     try {
-      // Prepare the data to send
       const formDataToSend = new FormData();
       formDataToSend.append("contact-name", formData.fullname);
       formDataToSend.append("contact-email", formData.email);
       formDataToSend.append("contact-phone", formData.contact);
-      formDataToSend.append("contact-company", formData.city);
-      formDataToSend.append("contact-subject", formData.country);
-      formDataToSend.append("contact-message", formData.education);
-
-      // Add hidden fields dynamically
+      formDataToSend.append("contact-city", formData.city);
+      formDataToSend.append("contact-country", formData.country);
+      formDataToSend.append("contact-education", formData.education);
+      formDataToSend.append("contact-level", formData.level);
+      formDataToSend.append("contact-exam", formData.exam);
       formDataToSend.append("referrer_name", document.referrer || "direct");
       formDataToSend.append("keyword", "Scholarship Program");
       formDataToSend.append("source", "Landing Page");
@@ -686,7 +563,6 @@ const LandingBanner = () => {
       formDataToSend.append("campaign_name", "Study Abroad Campaign");
       formDataToSend.append("network", "Organic");
 
-      // Use the correct file name - planetEducation_CRM.php instead of submit.php
       const response = await fetch(
         "https://stealthlearn.in/planeteducation/planetEducation_CRM.php",
         {
@@ -695,18 +571,13 @@ const LandingBanner = () => {
         }
       );
 
-      // Check response status first
       if (!response.ok) {
         throw new Error(`Server responded with status: ${response.status}`);
       }
 
-      // Get the text response first to help with debugging
       const responseText = await response.text();
-
-      // Try to parse the response as JSON only if it looks like JSON
       let result;
       try {
-        // Only try to parse if the text starts with { or [
         if (
           responseText.trim().startsWith("{") ||
           responseText.trim().startsWith("[")
@@ -714,11 +585,8 @@ const LandingBanner = () => {
           result = JSON.parse(responseText);
         } else {
           console.log("Non-JSON response:", responseText);
-          // If response is not JSON but response was ok, consider it a success
           if (response.ok) {
             setSuccessMessage("Form submitted successfully!");
-            // Redirect to the thank you page
-            window.location.href = "thankyou.html";
             return;
           } else {
             throw new Error("Unexpected response format from server");
@@ -734,11 +602,11 @@ const LandingBanner = () => {
         throw new Error("Unexpected response format from server.");
       }
 
-      // Handle the JSON response if we successfully parsed it
       if (result && (result.status === "success" || response.ok)) {
         setSuccessMessage("Form submitted successfully!");
-        // Redirect to the thank you page
-        window.location.href = "thankyou.html";
+        if (!successMessage) {
+          window.location.href = "thankyou.html";
+        }
       } else {
         setError(result?.message || "Failed to submit form. Please try again.");
       }
@@ -746,7 +614,7 @@ const LandingBanner = () => {
       console.error("Error submitting form:", error);
       setError(error.message || "Failed to submit form. Please try again.");
     } finally {
-      setIsSubmitting(false); // Re-enable the submit button
+      setIsSubmitting(false);
     }
   };
 
@@ -941,22 +809,8 @@ const LandingBanner = () => {
           </div>
         </BannerContainer>
       </div>
-      {/* <ScholarshipBanner /> */}
     </Wrapper>
   );
 };
 
 export default LandingBanner;
-
-// function ScholarshipBanner() {
-//   return (
-//     <Banner>
-//       <Title>Events</Title>
-//       <RedTextContainer>
-//         <img src={Ahmedabad} alt="Ahmedabad Event" />
-//         <img src={Vadodara} alt="Vadodara Event" />
-//         <img src={Chennai} alt="Chennai Event" />
-//       </RedTextContainer>
-//     </Banner>
-//   );
-// }
