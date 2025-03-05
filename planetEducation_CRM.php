@@ -44,6 +44,16 @@ try {
         throw new Exception('Required fields are missing.');
     }
 
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        throw new Exception('Invalid email format.');
+    }
+
+    // Validate phone number format (example: simple check)
+    if (!preg_match('/^\+?[0-9]{10,15}$/', $phone)) {
+        throw new Exception('Invalid phone number format.');
+    }
+
     // Format the query content to include all the form information
     $query = "<b>City: </b>" . $city . 
              "<br><b>Study Destination: </b>" . $studyDestination . 
@@ -109,7 +119,7 @@ try {
             'message' => 'Form submitted successfully.'
         ]);
     } else {
-        throw new Exception('Failed to submit form to CRM.');
+        throw new Exception('Failed to submit form to CRM. Response: ' . print_r($response_data, true));
     }
 
 } catch (Exception $e) {
