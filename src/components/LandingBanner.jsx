@@ -735,7 +735,6 @@ const LandingBanner = () => {
                           <option value="Delhi NCR">Delhi NCR</option>
                           <option value="Ahmedabad">Ahmedabad</option>
                           <option value="Chandigarh">Chandigarh</option>
-                          <option value="Baroda">Baroda</option>
                           <option value="Chennai">Chennai</option>
                           <option value="Mumbai">Mumbai</option>
                         </Form.Control>
@@ -791,8 +790,15 @@ const LandingBanner = () => {
                           required
                         >
                           <option value="">Preferred Study Level</option>
-                          <option value="Graduate">Graduate</option>
-                          <option value="Post Graduate">Post Graduate</option>
+                          {formData.education === "12th Pass" && (
+                            <option value="Graduate">Graduate</option>
+                          )}
+                          {formData.education === "Graduate" && (
+                            <option value="Post Graduate">Post Graduate</option>
+                          )}
+                          {formData.education === "Post Graduate" && (
+                            <option value="Post Graduate">Post Graduate</option>
+                          )}
                         </Form.Control>
                       </Form.Group>
                       <Form.Group
