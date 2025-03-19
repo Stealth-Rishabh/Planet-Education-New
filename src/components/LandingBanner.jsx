@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
 import background from "../assets/Hero.webp";
-import backgroundResp from "../assets/images/mobile.png";
+import backgroundResp from "../assets/Hero-Mob.webp";
 import logo from "../assets/images/logo-new.webp";
 
 // Styled components moved outside the functional component
