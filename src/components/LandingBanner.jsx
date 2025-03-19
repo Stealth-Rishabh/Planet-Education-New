@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-import background from "../assets/images/Newbanner.png";
+import background from "../assets/Hero.webp";
 import backgroundResp from "../assets/images/mobile.png";
 import logo from "../assets/images/logo-new.webp";
 
@@ -646,7 +646,7 @@ const LandingBanner = () => {
   return (
     <Wrapper>
       <div className="catch">
-        <img className="logo" src={logo} alt="Logo" />
+        <img className="logo invisible" src={logo} alt="Logo" />
         <BannerContainer className="bannerCont">
           <div className="right">
             <div className="form">
